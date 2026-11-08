@@ -1,0 +1,25 @@
+main {
+    width: 50%;
+    flex: 0 0 50%;
+    min-height: 100vh;
+}
+
+#tasks-heading {
+    background-color: var(--pink);
+    border-radius: 30px;
+    width: 250px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+}
+
+.tasks {
+    width: 85%;
+    height: 85vh;
+    min-height: 85vh;
+    background-color: var(--pink);
+    border-radius: 15px;
+    margin: auto;
+}

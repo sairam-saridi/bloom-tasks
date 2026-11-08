@@ -1,0 +1,187 @@
+/* Sidebar */
+aside {
+    background-color: var(--pink);
+
+    width: 20%;
+    flex: 0 0 20%;
+    min-height: 100vh;
+
+    padding: 20px 25px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* App name */
+.app-name {
+    text-align: center;
+    padding: 20px 0;
+    margin: 0 0 10px;
+
+    font-size: 28px;
+    font-style: italic;
+}
+
+/* Account */
+.account {
+    margin-bottom: 35px;
+}
+
+.account-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Menu */
+.menu h2 {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+/* Navigation */
+.menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.menu nav > button {
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+
+.menu nav > button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Navigation links */
+.menu nav > a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+
+    text-decoration: none;
+    color: #222;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Icons */
+aside svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+/* My Projects */
+.menu details {
+    width: 100%;
+}
+
+.menu summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Project list */
+.menu ul {
+    list-style: none;
+    padding-left: 30px;
+    margin: 12px 0 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu ul li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Project links */
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex: 1;
+
+    text-decoration: none;
+    color: #222;
+    font-size: 17px;
+}
+
+/* Delete button */
+.menu ul li button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    padding: 3px;
+}
+
+/* Add project form */
+.menu form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu form input {
+    width: 100%;
+    padding: 7px;
+}
+
+.menu form button {
+    align-self: flex-start;
+}
+
+/* Login */
+.login {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: auto;
+    padding-top: 25px;
+
+    text-decoration: none;
+    color: #222;
+
+    font-size: 16px;
+    font-weight: 600;
+}

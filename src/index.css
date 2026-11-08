@@ -1,0 +1,28 @@
+:root {
+  --backgroundColor: #F7F4FC;
+  --pink: #F8D7E3;
+  --lavender :#E8DDF8;
+  --peach: #FCE2CF;
+  --mint: #DCEFE2;
+  --yellow: #F8EEC8;
+  --blue: #DCEAF8;
+}
+
+/* General */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* App container */
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
