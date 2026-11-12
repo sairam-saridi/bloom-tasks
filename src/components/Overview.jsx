@@ -1,9 +1,11 @@
 import { useState } from "react"
+import TaskModal from "./TaskModal.jsx"
 import { icons } from "../icons.jsx"
 import "../styles/Overview.css"
-export default function Overview()
+export default function Overview({ onAddTasks })
 {
     const [projectList, setProjectList] = useState([])
+    const [showTaskModal, setShowTaskModal] = useState(false);
 
     function addProject(event)
     {
@@ -21,7 +23,9 @@ export default function Overview()
         setProjectList(prevlist => prevlist.filter(list => list !== prj))
     }
 
-    return( <aside>
+    return( 
+    <>  
+    <aside>
         <h1 className="app-name">Todo</h1>
         <section className="account">
             <h2 title="Account" className="account-name">{icons.account} Guest</h2>
@@ -29,7 +33,7 @@ export default function Overview()
         <section className="menu">
             <h2>menu</h2>
             <nav>
-                <button>
+                <button type="button" onClick={()=>setShowTaskModal(true)}>
                     {icons.newTask}
                     <span>Add New Task</span>
                 </button>
@@ -82,5 +86,14 @@ export default function Overview()
             <span>Log in</span>
         </a>
     </aside>
+    {showTaskModal && (
+        <TaskModal onClose={()=>setShowTaskModal(false)}
+                   onSave={(newTasks)=>{
+                        onAddTasks(newTasks);
+                        setShowTaskModal(false);
+                   }}
+        />
+    )}
+    </>
     )
 }

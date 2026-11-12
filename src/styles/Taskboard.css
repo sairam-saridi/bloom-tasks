@@ -7,8 +7,8 @@ main {
 #tasks-heading {
     background-color: var(--pink);
     border-radius: 30px;
-    width: 250px;
-    height: 40px;
+    width: 300px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,4 +22,18 @@ main {
     background-color: var(--pink);
     border-radius: 15px;
     margin: auto;
+    padding: 30px;
+}
+
+.no-tasks {
+    text-align: center;
+    color: red;
+    margin-top: 0px;
+}
+
+.task-card {
+    display: grid; 
+    grid-template-columns: 110px minmax(0,1fr) 45px 45px;  
+    align-items: center;
+    gap: 10px;
 }

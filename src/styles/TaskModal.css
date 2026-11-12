@@ -1,0 +1,217 @@
+.modal-overlay {
+   position: fixed;
+   inset: 0;
+   z-index: 1000;
+
+   background: rgba(60, 40, 55, 0.35);
+   backdrop-filter: blur(4px);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   padding: 20px;
+}
+
+.task-modal {
+   width: 100%;
+   max-width: 650px;
+   max-height: 90vh;
+   overflow-y: auto;
+
+   background: #FFF7FA;
+   padding: 25px;
+   border-radius: 18px;
+
+   box-shadow: 0 15px 45px rgba(80, 40, 65, 0.15);
+   animation: modalAppear 0.2s ease;
+}
+
+@keyframes modalAppear {
+   from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+   }
+}
+
+.modal-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   margin-bottom: 25px;
+}
+
+.modal-header h2 {
+   color: #49343E;
+   margin: 0 0 7px;
+}
+
+.modal-header p {
+   color: #927985;
+   margin: 0;
+   font-size: 14px;
+}
+
+.close-btn {
+   border: none;
+   background: #F8D7E3;
+   color: #925A72;
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+
+   font-size: 22px;
+   cursor: pointer;
+}
+
+.close-btn:hover{
+   background: #E783A7;
+}
+
+.task-modal-list {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+
+.task-modal-labels,
+.task-modal-row {
+   display: grid;
+   grid-template-columns: 110px minmax(0,1fr) 45px;
+   gap: 12px;
+   align-items: center;
+}
+
+.task-modal-labels{
+   color: #927985;
+   font-size: 19px;
+   font-weight: 600;
+}
+
+.task-modal-row {
+   background: #F9DFE8;
+   padding: 12px;
+   border-radius: 12px;
+}
+
+.task-modal-row input[type ="time"],
+.task-modal-row input[type ="text"]
+{
+   width: 100%;
+   min-width: 0;
+   box-sizing: border-box;
+
+   border: 1px solid #EBC5D5;
+   background: #FFF9FB;
+
+   padding: 9px;
+   border-radius: 8px;
+
+   color:  #49343E;
+   font: inherit;
+   font-size: 21px;
+}
+
+.task-modal-row input:focus {
+   outline: 2px solid #E783A7;
+   outline-offset: 1px;
+}
+
+.delete-task-btn {
+   border: none;
+   background: #EFC0D2;
+   color: #85435F;
+
+   width: 40px;
+   height: 40px;
+   border-radius: 8px;
+
+   font-size: 20px;
+   cursor: pointer;
+}
+
+.delete-task-btn svg {
+   width: 25px;
+   height: 25px;
+}
+
+.delete-task-btn:hover {
+    background: #E783A7;
+    color: white;
+}
+
+.add-task-btn {
+   width: 100%;
+   padding: 12px;
+   margin-top: 20px;
+
+   border: 1px dashed #D98EAB;
+   border-radius: 10px;
+
+   background: #FCEBF2;
+   color: #C85F87;
+
+   font-size: 14px;
+   font-weight: 600;
+   cursor: pointer;
+}
+
+.add-task-btn:hover {
+    background: #F8D7E3;
+}
+
+.modal-footer {
+   display: flex;
+   justify-content: flex-end;
+   gap:10px;
+   margin-top: 25px;
+}
+
+.cancel-btn,
+.save-btn {
+   padding: 10px 20px;
+   border:none;
+   border-radius: 10px;
+
+   font-size:14px;
+   font-weight:600;
+   cursor: pointer;
+}
+
+.cancel-btn {
+    background: #F8EAF0;
+    color: #925A72;
+}
+
+.save-btn {
+    background: #C85F87;
+    color: white;
+}
+
+.save-btn:hover {
+    background: #AE4D73;
+}
+
+@media (max-width: 550px) {
+    .task-modal {
+        padding: 17px;
+    }
+
+    .task-modal-labels,
+    .task-modal-row {
+        grid-template-columns: 1fr 1.4fr 25px 30px;
+        gap: 5px;
+    }
+
+    .task-modal-row {
+        padding: 8px;
+    }
+
+    .task-modal-row input {
+        font-size: 11px;
+    }
+}
