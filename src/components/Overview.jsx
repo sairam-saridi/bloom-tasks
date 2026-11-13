@@ -43,19 +43,14 @@ export default function Overview({ onAddTasks })
                     <span>All Tasks</span>
                 </a>
 
-                <a href="#important">
-                    {icons.important}
-                    <span>Important</span>
+                <a href="#uncompleted">
+                    {icons.uncompleted}
+                    <span>Uncompleted</span>
                 </a>
 
                 <a href="#completed">
                     {icons.completed}
                     <span>Completed</span>
-                </a>
-
-                <a href="#today">
-                    {icons.today}
-                    <span>Today</span>
                 </a>
                 <details>
                    <summary>{icons.project}<span>My Projects</span></summary>

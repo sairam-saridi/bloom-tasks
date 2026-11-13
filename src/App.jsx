@@ -19,11 +19,36 @@ function App() {
   });
 
   useEffect(()=>{
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(tasks)
-    );
-  },[tasks]);
+    try {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(tasks)
+      );
+    } catch(error)
+    {
+      console.error("Unable to save tasks:", error);
+    }
+   },[tasks]);
+
+  function updateTask(id,field,value)
+  {
+      setTasks(prev=>
+        prev.map(task=>
+          task.id===id
+          ? {...task,[field]:value}
+          : task
+        ) 
+      );
+  }
+
+  function deleteTask(id)
+  {
+      setTasks(prev=>
+        prev.filter(task=>
+          task.id !== id
+        )
+      )
+  }
 
   function handleAddTasks(newTasks)
   {
@@ -32,7 +57,7 @@ function App() {
   return (
     <div className="app-container">
       <Overview onAddTasks={handleAddTasks}/>
-      <Taskboard tasks={tasks}/>
+      <Taskboard tasks={tasks} updateTask={updateTask} deleteTask={deleteTask}/>
       {
       //<ProjectList /> 
       }
