@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import Overview from "./components/Overview";
 import Taskboard from "./components/Taskboard";
+import GoalsList from "./components/GoalsList.jsx";
 
 const STORAGE_KEY = "bloom-tasks";
 
 function App() {
+
+  const [taskFilter, setTaskFilter] = useState("all");
+  const [goalsList, setGoalsList] = useState([]);
 
   const [tasks,setTasks] = useState(() => {
     try{
@@ -30,6 +34,19 @@ function App() {
     }
    },[tasks]);
 
+  const filteredTasks = tasks.filter(task=>{
+    if(taskFilter === "completed")
+    {
+       return Boolean(task.completed);
+    }
+
+    if(taskFilter === "uncompleted")
+    {
+      return !task.completed
+    }
+    return true;
+  });
+
   function updateTask(id,field,value)
   {
       setTasks(prev=>
@@ -54,13 +71,29 @@ function App() {
   {
     setTasks(prev=> [...prev,...newTasks]);
   }
+
+  function addGoal(goal)
+  {
+    setGoalsList(prev=>[...prev, goal]);
+  }
+
+  function deleteGoal(index) {
+    setGoalsList(prev =>
+      prev.filter((_, i) => i !== index)
+    );
+  }
+
   return (
     <div className="app-container">
-      <Overview onAddTasks={handleAddTasks}/>
-      <Taskboard tasks={tasks} updateTask={updateTask} deleteTask={deleteTask}/>
-      {
-      //<ProjectList /> 
-      }
+      <Overview
+        onAddTasks={handleAddTasks}
+        onFilterChange={setTaskFilter}
+        goalsList={goalsList}
+        addGoal={addGoal}
+        deleteGoal={deleteGoal}
+      />
+      <Taskboard tasks={filteredTasks} updateTask={updateTask} deleteTask={deleteTask}/>
+      <GoalsList goalsList={goalsList}/> 
     </div>
   );
 }

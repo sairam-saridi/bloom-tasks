@@ -2,25 +2,19 @@ import { useState } from "react"
 import TaskModal from "./TaskModal.jsx"
 import { icons } from "../icons.jsx"
 import "../styles/Overview.css"
-export default function Overview({ onAddTasks })
+export default function Overview({ onAddTasks, onFilterChange, goalsList, addGoal, deleteGoal})
 {
-    const [projectList, setProjectList] = useState([])
     const [showTaskModal, setShowTaskModal] = useState(false);
 
-    function addProject(event)
+    function handleAddGoal(event)
     {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
-        const value = formData.get("projectName").trim();
+        const value = formData.get("goalName").trim();
         if(!value)
             return;
-        setProjectList(prev => [...prev,value]);
+        addGoal(value);
         event.currentTarget.reset();
-    }
-
-    function deleteProject(prj)
-    {
-        setProjectList(prevlist => prevlist.filter(list => list !== prj))
     }
 
     return( 
@@ -38,38 +32,47 @@ export default function Overview({ onAddTasks })
                     <span>Add New Task</span>
                 </button>
 
-                <a href="#all-tasks">
+                <a href="#all-tasks" onClick={(event)=>{
+                    event.preventDefault();
+                    onFilterChange("all");
+                }}>
                     {icons.allTasks}
                     <span>All Tasks</span>
                 </a>
 
-                <a href="#uncompleted">
+                <a href="#uncompleted" onClick={(event)=>{
+                    event.preventDefault();
+                    onFilterChange("uncompleted");
+                }}>
                     {icons.uncompleted}
                     <span>Uncompleted</span>
                 </a>
 
-                <a href="#completed">
+                <a href="#completed" onClick={(event)=>{
+                    event.preventDefault();
+                    onFilterChange("completed")
+                }}>
                     {icons.completed}
                     <span>Completed</span>
                 </a>
                 <details>
-                   <summary>{icons.project}<span>My Projects</span></summary>
+                   <summary>{icons.goals}<span>My Goals</span></summary>
                     <ul>
-                        {projectList.map((list,index)=>(
+                        {goalsList.map((goal,index)=>(
                             <li key={index}>
-                                <a href={`#${list}`}>
-                                    {list}
+                                <a href={`#goal-${index}`}>
+                                    {goal}
                                 </a>
-                                <button onClick={() => deleteProject(list)}>{icons.delete}</button>
+                                <button onClick={() => deleteGoal(index)}>{icons.delete}</button>
                             </li>
                         ))}
                         <li>
-                            <form onSubmit={addProject}>
+                            <form onSubmit={handleAddGoal}>
                                 <input type="text"
-                                        name="projectName"
-                                       placeholder="Enter Project Name"
+                                        name="goalName"
+                                       placeholder="Enter what you want to achieve..."
                                />
-                                <button type="submit">+ Add Project</button>
+                                <button type="submit">+ Add Goal</button>
                             </form>
                         </li>
                     </ul>

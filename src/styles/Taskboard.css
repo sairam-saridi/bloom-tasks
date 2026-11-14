@@ -83,7 +83,7 @@ main {
     box-shadow: none;
 }
 
-input[type="checkbox"] {
+.title-checkbox input[type="checkbox"] {
   appearance: none;
   width: 20px;
   height: 20px;
@@ -94,13 +94,13 @@ input[type="checkbox"] {
   position: relative;
 }
 
-input[type="checkbox"]:checked {
+.title-checkbox [type="checkbox"]:checked {
   background-color: #16a34a;
   border-color: #16a34a;
   box-shadow: 0 2px 6px rgba(22, 163, 74, 0.35);
 }
 
-input[type="checkbox"]:checked::after {
+.title-checkbox [type="checkbox"]:checked::after {
   content: "✓";
   color: white;
   position: absolute;
