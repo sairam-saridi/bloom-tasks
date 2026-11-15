@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Overview from "./components/Overview";
 import Taskboard from "./components/Taskboard";
 import GoalsList from "./components/GoalsList.jsx";
+import IntroFlower from "./IntroFlower.jsx";
 
 const STORAGE_KEY = "bloom-tasks";
 
@@ -94,6 +95,7 @@ function App() {
       />
       <Taskboard tasks={filteredTasks} updateTask={updateTask} deleteTask={deleteTask}/>
       <GoalsList goalsList={goalsList}/> 
+      <IntroFlower/>
     </div>
   );
 }

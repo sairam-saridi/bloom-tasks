@@ -79,10 +79,6 @@ export default function Overview({ onAddTasks, onFilterChange, goalsList, addGoa
                 </details>
             </nav>
         </section>
-       <a className="login" href="login.html">
-            {icons.login}
-            <span>Log in</span>
-        </a>
     </aside>
     {showTaskModal && (
         <TaskModal onClose={()=>setShowTaskModal(false)}
